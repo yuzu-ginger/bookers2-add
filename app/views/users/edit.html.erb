@@ -1,0 +1,19 @@
+<h2>User info</h2>
+
+<%= form_with model: @user do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "name" %>
+  </div>
+  <div class = "field">
+    <%= f.label :image %>
+    <%= f.file_field :profile_image, class: "image" %>  
+  </div>
+  <div class="field">
+    <%= f.label :introduction %>
+    <%= f.text_area :introduction, class: "introduction" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Update User" %>
+  </div>
+<% end %>

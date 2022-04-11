@@ -1,8 +1,9 @@
 <div>
-  <%= link_to book_path(book.id) do %>
-    <p><%= book.title %></p>
+  <p><%= image_tag @book.user.get_profile_image(100,100) %></p>
+  <%= link_to book_path(@book.id) do %>
+    <p><%= @book.title %></p>
   <% end %>
-  <p><%= book.body %></p>
+  <p><%= @book.body %></p>
   
   <% if @book.user == current_user %>
     <%= link_to "削除", book_path(@book), method: :delete %>

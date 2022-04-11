@@ -2,14 +2,12 @@ class BooksController < ApplicationController
   # 投稿一覧
   def index
     @books = Book.all
-    # 追加
     @book = Book.new
   end
   
   # 投稿詳細
   def show
     @book = Book.find(params[:id])
-    # 追加
 		@books =Book.new
   end
   

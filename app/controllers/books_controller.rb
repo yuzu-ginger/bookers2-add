@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!
+  before_action :correct_user, only: [:edit, :update]
   # 投稿一覧
   def index
     @books = Book.all
@@ -14,7 +16,6 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     @book.user_id = current_user.id
-    
     # バリデーション
     if @book.save
       redirect_to books_path
@@ -43,6 +44,14 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book.destroy
     redirect_to books_path
+  end
+  
+  def correct_user
+    @book = Book.find(params[:id])
+    @user = @book.user
+    unless @user == current_user
+  		redirect_to books_path
+  	end
   end
   
   private

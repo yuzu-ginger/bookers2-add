@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :correct_user, only: [:edit, :update]
+  
   # ユーザ一覧
   def index
     @users = User.all
@@ -23,6 +26,13 @@ class UsersController < ApplicationController
   		redirect_to user_path(@user)
   	else
   		render :edit
+  	end
+  end
+  
+  def correct_user
+    @user = User.find(params[:id])
+    unless @user.id == current_user.id
+  		redirect_to user_path(current_user)
   	end
   end
   

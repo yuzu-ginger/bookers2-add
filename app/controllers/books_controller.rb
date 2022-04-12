@@ -13,12 +13,13 @@ class BooksController < ApplicationController
 		@books =Book.new
   end
   
+  # 新規投稿
   def create
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     # バリデーション
     if @book.save
-      redirect_to books_path
+      redirect_to books_path, notice: "You have created book successfully."
     else
       @books = Book.all
       render :index
@@ -30,10 +31,11 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
   
+  # 更新
   def update
     @book = Book.find(params[:id])
     if @book.update(book_params)
-  		redirect_to book_path
+  		redirect_to book_path, notice: "You have updated book successfully."
   	else
 			render :edit
   	end

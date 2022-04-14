@@ -1,24 +1,13 @@
-# README
+# dmm-webcamp-practice4
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+dmm webcamp 研修カリキュラム
 
-Things you may want to cover:
+COMMIT　基礎知識学習フェーズ　ver5.0
 
-* Ruby version
+研修課題3です
 
-* System dependencies
+## 課題
 
-* Configuration
+### 課題4
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Bookers2 いいね、コメント機能追加

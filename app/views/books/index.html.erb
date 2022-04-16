@@ -41,6 +41,10 @@
               <td>
                 <%= book.body %>
               </td>
+               <%= render 'post', book: book %>
+              <td>
+								コメント数: <%= book.book_comments.count %>
+							</td>
             </tr>
           <% end %>
         </tbody>
